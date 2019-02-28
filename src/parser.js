@@ -4,13 +4,12 @@ const path = require("path");
 const input = require("./input");
 
 const files = {
-  A: "a_example.txt",
-  B: "b_lovely_landscapes.txt",
-  C: "c_memorable_moments.txt",
-  D: "d_pet_pictures.txt",
-  E: "e_shiny_selfies.txt"
-}
-
+  A: "../input/a_example.txt",
+  B: "../input/b_lovely_landscapes.txt",
+  C: "../input/c_memorable_moments.txt",
+  D: "../input/d_pet_pictures.txt",
+  E: "../input/e_shiny_selfies.txt"
+};
 
 const read = (file) => {
   const fileText = fs.readFileSync(path.join(__dirname, files[file]), { encoding: "ASCII" });
