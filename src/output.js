@@ -14,7 +14,7 @@ function write_slides(filename, slides) {
       console.error("ERROR: wrong slide: ", slide);
     }
 
-    slides_text += slide.join(" ") + "\n"
+    slides_text += slide.join(' ') + "\n"
   });
 
   console.log("slides_text: ", slides_text);
