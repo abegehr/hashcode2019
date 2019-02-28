@@ -153,6 +153,8 @@ const howManyTagsInCommon = (pic1, pic2) => {
 let allPairs = pairAllPicsV();
 let solution = createUltimatePicArray(allPairs);
 
+console.log("solution: ", solution);
+
 let slides = solution.map(image => {
   if (image.id.length) {
     return image.id;

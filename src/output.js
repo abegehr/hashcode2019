@@ -17,7 +17,7 @@ function write_slides(filename, slides) {
     slides_text += slide.join(' ') + "\n"
   });
 
-  console.log("slides_text: ", slides_text);
+  //console.log("slides_text: ", slides_text);
 
   fs.writeFile(filename, slides_text, function(err) {
       if(err) {
