@@ -11,12 +11,17 @@ var slides = [
   [2, 3],
   [4, 5],
   [6],
-  [7, 8]
+  [7, 8, 9]
 ];
 
 var slides_text = slides.length + "\n";
 
 slides.forEach(slide => {
+  // detect wrong slides (not 1 or 2 pictures per slide)
+  if (slide.length !== 1 && slide.length !== 2) {
+    console.log("ERROR: wrong slide: ", slide);
+  }
+
   slides_text += slide.join(" ") + "\n"
 });
 
