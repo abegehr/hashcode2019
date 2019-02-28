@@ -1,6 +1,7 @@
 
 module.exports = class image {
-  constructor(line) {
+  constructor(line, id) {
+    this.id = id;
     this.line = line;
     this.tags = this.tags;
     this.tags = this._tags();
