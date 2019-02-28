@@ -4,7 +4,7 @@ const write = require("../output").write_slides;
 
 
 // change to A, B, C, D, E
-const file = "E";
+const file = "A";
 
 // read data
 var data = read(file);
@@ -77,6 +77,8 @@ const createUltimatePicArray = (allPairs) => {
 
 let allPairs = pairAllPicsV();
 let solution = createUltimatePicArray(allPairs);
+
+console.log("solution: ", solution);
 
 let slides = solution.map(image => {
   if (image.id.length) {
