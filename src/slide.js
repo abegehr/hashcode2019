@@ -3,7 +3,7 @@ module.exports = class Slide {
     if (image1.isHor && image2 !== undefined)
       throw new Error("Horizontal Images want to be alone!");
 
-    if (iamge1.isVert && image2 === undefined)
+    if (image1.isVert && image2 === undefined)
       throw new Errror("Vertical Images DO NOT want to be alone!")
 
     this.image1 = image1;
@@ -16,18 +16,28 @@ module.exports = class Slide {
     if (this.image2 === undefined)
       return this.image1.tags;
 
-    return Array.from(new Set(image1.tags.concat(image2.tags)));
-
+    return Array.from(new Set(this.image1.tags.concat(this.image2.tags)));
 
   }
 
-  _commonTags() {
+  calcTransitionScore(nextSlide) {
+    const commonTags = this.tags.filter(tag => nextSlide.tags.includes(tag));
+    const inMeNotInNext = this.tags.filter(tag => !nextSlide.tags.includes(tag));
+    const inNextNotInMe = nextSlide.tags.filter(tag => !this.tags.includes(tag));
 
-    const tagsImage1 = image1.tags;
-    const tagsImage2 = this.image2 ? this.image2.tags : [];
+    const stat1 = commonTags.length;
+    const stat2 = inMeNotInNext.length;
+    const stat3 = inNextNotInMe.length;
 
-    const
+    const total = [stat1, stat2, stat3].reduce((acc, cur) => cur < acc ? cur : acc);
 
-    return
+    debugger;
+
+    return {
+      stat1,
+      stat2,
+      stat3,
+      total,
+    }
   }
 }
