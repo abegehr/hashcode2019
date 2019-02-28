@@ -3,6 +3,7 @@
 //   one horizontal or two vertical pictures per slide
 
 const fs = require('fs');
+const path = require("path");
 
 
 function write_slides(filename, slides) {
@@ -19,12 +20,12 @@ function write_slides(filename, slides) {
 
   //console.log("slides_text: ", slides_text);
 
-  fs.writeFile(filename, slides_text, function(err) {
-      if(err) {
-          return console.log(err);
-      }
+  fs.writeFile(path.resolve(__dirname, filename), slides_text, function (err) {
+    if (err) {
+      return console.log(err);
+    }
 
-      console.log("The file was saved!");
+    console.log("The file was saved!");
   });
 }
 
