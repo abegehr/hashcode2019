@@ -18,4 +18,4 @@ var slides = pics_h.map(pic => {
 
 console.log("slides: ", slides)
 
-write(file + "_out.txt", slides)
+write("../../output/only_hor_" + file + "_out.txt", slides)
