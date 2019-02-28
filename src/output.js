@@ -15,10 +15,10 @@ function write_slides(filename, slides) {
       console.error("ERROR: wrong slide: ", slide);
     }
 
-    slides_text += slide.join(" ") + "\n"
+    slides_text += slide.join(' ') + "\n"
   });
 
-  console.log("slides_text: ", slides_text);
+  //console.log("slides_text: ", slides_text);
 
   fs.writeFile(path.resolve(__dirname, filename), slides_text, function (err) {
     if (err) {
