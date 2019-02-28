@@ -4,7 +4,7 @@ const write = require("../output").write_slides;
 
 
 // change to A, B, C, D, E
-const file = "B";
+const file = "A";
 
 // read data
 var data = read(file);
@@ -169,4 +169,4 @@ let slides = solution.map(image => {
 
 //console.log("solution: ", solution)
 
-write("../../output/hor_and_vert/" + file + "_out.txt", slides)
+write("../output/hor_and_vert/" + file + "_out.txt", slides)
