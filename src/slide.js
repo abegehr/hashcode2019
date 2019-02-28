@@ -31,8 +31,6 @@ module.exports = class Slide {
 
     const total = [stat1, stat2, stat3].reduce((acc, cur) => cur < acc ? cur : acc);
 
-    debugger;
-
     return {
       stat1,
       stat2,
