@@ -10,8 +10,14 @@ class App extends Component {
     ],
     pics_v: [
       {id: 1, tags: ["selfie", "smile"]},
-      {id: 2, tags: ["garden", "selfie"]}
+      {id: 2, tags: ["garden", "selfie"]},
+      {id: 3, tags: ["selfie", "smile"]},
+      {id: 4, tags: ["selfie", "smile"]},
+      {id: 5, tags: ["selfie", "smile"]},
+
     ],
+    pics_v_all_pairs: [],
+    allPairsCreated: false,
   }
 
   combineTags = (pic1, pic2) => {
@@ -48,16 +54,30 @@ class App extends Component {
     return {id: [pic1["id"],pic2["id"]], tags: this.combineTags(pic1,pic2)}
   }
 
+  pairAllPicsV = () => {
+    var pics_v = this.state.pics_v
+    var allPairs = []
+    for (var i = 0; i < pics_v.length; i=i+2){
+      if (pics_v.length - i >= 2){
+        allPairs.push(this.combinePics(pics_v[i],pics_v[i+1]))
+      }
+    }
+    console.log("allPairs: ",allPairs)
+    this.setState({
+      pics_v_all_pairs: allPairs,
+      allPairsCreated: true,
+    })
+  }
+
+
   render() {
     //pics_h: {id: 0, tags: Array(3)}
     //pair_v: {id: [0,1], tags: Array(x+y)}
     var {pics_h, pics_v} = this.state
-    console.log("pics_h: ",pics_h)
-    console.log("pics_v: ",pics_v)
+    if(!this.state.allPairsCreated){
+      this.pairAllPicsV()
+    }
 
-
-
-    console.log(this.combinePics(pics_h[0],pics_h[1]))
     return (
       <div className="App">
       </div>
