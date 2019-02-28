@@ -18,6 +18,8 @@ class App extends Component {
     ],
     pics_v_all_pairs: [],
     allPairsCreated: false,
+    allPicsWithPairs: [],
+    ultimateArrayCreated: false,
   }
 
   combineTags = (pic1, pic2) => {
@@ -69,14 +71,43 @@ class App extends Component {
     })
   }
 
+  createUltimatePicArray = () => {
+
+
+    var {pics_h, pics_v} = this.state
+
+    if(!this.state.allPairsCreated){
+      this.pairAllPicsV()
+    }
+
+    if(!this.state.allPairsCreated){
+      return false
+    }
+    var ultimatePicArray = []
+    for (var i = 0; i < pics_h.length; i++){
+      ultimatePicArray.push(pics_h[i])
+    }
+    var allPairs = this.state.pics_v_all_pairs
+    //console.log("allPairs: ",allPairs)
+    for (i = 0; i < allPairs.length; i++){
+      ultimatePicArray.push(allPairs[i])
+    }
+    console.log("ultimatePicArray: ",ultimatePicArray)
+    this.setState({
+      allPicsWithPairs: ultimatePicArray,
+      ultimateArrayCreated: true,
+    })
+  }
 
   render() {
     //pics_h: {id: 0, tags: Array(3)}
     //pair_v: {id: [0,1], tags: Array(x+y)}
     var {pics_h, pics_v} = this.state
-    if(!this.state.allPairsCreated){
-      this.pairAllPicsV()
+
+    if(!this.state.ultimateArrayCreated){
+      this.createUltimatePicArray()
     }
+
 
     return (
       <div className="App">
